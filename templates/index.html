@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .chat-box {
+            margin-top: 20px;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+        .user-message {
+            background-color: #007bff;
+            color: #fff;
+            text-align: right;
+            align-self: flex-end;
+        }
+        .assistant-message {
+            background-color: #e9ecef;
+            color: #333;
+            text-align: left;
+            align-self: flex-start;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .assistant-message ul {
+            padding-left: 20px;
+        }
+        .assistant-message li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Interface</h1>
+        <form action="/ask" method="post">
+            <input type="text" name="question" placeholder="Ask a question...">
+            <button type="submit">Ask</button>
+        </form>
+        
+        <div class="chat-box">
+            {% for message in messages %}
+                <div class="message {{ message.class }}">
+                    {% if message.class == 'assistant-message' %}
+                        <div>{{ message.content }}</div>
+                    {% else %}
+                        <p>{{ message.content }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
