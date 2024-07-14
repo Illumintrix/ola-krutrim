@@ -17,7 +17,7 @@ To run this application locally, follow these steps:
    cd your-repo
 
 2. Install dependencies:
-
+    ```bash
     pip install -r requirements.txt
 
 3. Set up environment variables:
@@ -25,12 +25,13 @@ To run this application locally, follow these steps:
     Create a .env file in the root directory of your project.
     Add your OLA Krutrim API key to the .env file:
 
+    ```bash
     API_KEY="your_ola_krutrim_api_key_here"
 
     Note: Replace "your_ola_krutrim_api_key_here" with your actual API key obtained from [OLA Krutrim API Key creation page](https://cloud.olakrutrim.com/console/inference-service?section=api-keys)
 
 4. Run the Flask application:
-
+    ```bash
     python app.py
 
 5. Open your web browser and navigate to http://localhost:5000 to access the application
@@ -41,6 +42,7 @@ The application will send the question to the ChatGPT model (Mistral-7B-Instruct
 
 ### Folder Structure
 
+```bash
 .
 ├── app.py                # Flask application code
 ├── templates/            # HTML templates
